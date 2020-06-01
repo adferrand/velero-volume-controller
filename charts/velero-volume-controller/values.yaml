@@ -17,7 +17,7 @@ clusterServerCfg:
   leaseLockNamespace: velero
   leaseLockName: velero-volume-controller
 veleroVolumeCfg:
-  includeNamespaces: test
+  includeNamespaces: ""
   excludeNamespaces: ""
   includeVolumeTypes: persistentVolumeClaim
   excludeVolumeTypes: ""
