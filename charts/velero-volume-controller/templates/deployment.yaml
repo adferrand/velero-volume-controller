@@ -24,7 +24,11 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "velero-volume-controller.serviceAccountName" . }}
+      {{- if .Values.rbac.create }}
+      serviceAccountName: {{ include "velero-volume-controller.fullname" . }}
+      {{- else }}
+      serviceAccountName: {{ .Values.serviceAccountName }}
+      {{- end }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:

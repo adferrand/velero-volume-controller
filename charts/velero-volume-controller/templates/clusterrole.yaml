@@ -4,7 +4,7 @@ kind: ClusterRole
 metadata:
   name: {{ include "velero-volume-controller.fullname" . }}
   labels:
-{{ include "velero-annotations-volume.labels" . | indent 4 }}
+{{ include "velero-volume-controller.labels" . | indent 4 }}
 rules:
 - apiGroups: ["coordination.k8s.io"]
   resources: ["leases"]
